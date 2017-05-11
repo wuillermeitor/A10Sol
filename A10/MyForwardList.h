@@ -16,5 +16,9 @@ public:
 	int insert_after();
 	int erase_after();
 
-
+	//Constructores
+	MyForwardList();
+	~MyForwardList();
+	MyForwardList(MyForwardList &ForwardList);
+	MyForwardList(int *a);
 };
