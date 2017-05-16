@@ -147,10 +147,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="A10.cpp" />
-    <ClCompile Include="MyForwardList.cpp" />
+    <ClCompile Include="MyList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyForwardList.h" />
+    <ClInclude Include="MyList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

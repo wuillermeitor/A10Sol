@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <list>
 #include <queue>
 
@@ -115,4 +115,4 @@ int main() {
 	std::list<int>l4({ 1, 2, 3, 4, 5, 4, 3, 2, 1 });
 	palindrome(l4);
 	return 0;
-}
+	}*/
