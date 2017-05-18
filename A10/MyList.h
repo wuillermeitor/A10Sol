@@ -9,6 +9,7 @@ public:
 	};
 	node *first;
 	node *last;
+	int list_size = 0;
 
 	//Métodos
 	int front();
@@ -20,6 +21,14 @@ public:
 	int insert(int pos, int newvalue);
 	int erase(int pos, int newvalue);
 	int size();
+
+	//Ejercicios Hoy
+	void shiftLeft();
+	void shiftRight();  
+	void rotateLeft();
+	void rotateRight();
+	void reverse();
+	void remove(int value);
 
 	//Constructores
 	MyList();
