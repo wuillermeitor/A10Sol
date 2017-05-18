@@ -111,7 +111,22 @@ void MyList::reverse() {
 }
 
 void MyList::remove(int value) {
-
+	MyList*tmp_list = new MyList();
+	int tmp;
+	int tmp_size = list_size;
+	for (int i = 0; i < tmp_size; i++) {
+		tmp = first->value;
+		if (tmp != value) {
+			tmp_list->push_back(tmp);
+			pop_front();
+		}
+	}
+	tmp_size = tmp_list->list_size;
+	for (int j = 0; j < tmp_size; j++) {
+		tmp = tmp_list->first->value;
+		push_back(tmp);
+		tmp_list->pop_front();
+	}
 }
 
 int main() {
@@ -132,6 +147,7 @@ int main() {
 	lista->rotateLeft();
 	lista->rotateRight();
 	lista->reverse();
+	lista->remove(5);
 
 	return 0;
 }
