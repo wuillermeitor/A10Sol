@@ -10,21 +10,16 @@ MyList::MyList() {
 MyList::MyList(MyList &List) {
 	node *pointer = List.first;
 	while ((*pointer).next != nullptr) {
-		push_front(pointer->value);
+		push_back(pointer->value);
 		pointer = pointer->next;
 	}
 }
 
 MyList::~MyList() {
-	node *one = first;
-	node *two;
-	for (int i = 0; i < this->size(); ++i) {
-		two = one;
-		one = one->next;
-		delete two;
+	for (int i = 0; i < this->size(); i++)
+	{
+		pop_back();
 	}
-	first = nullptr;
-	last = nullptr;
 }
 
 int MyList::size() {
@@ -32,24 +27,46 @@ int MyList::size() {
 	for (node *pointer = first; pointer != last; pointer = (*pointer).next) {
 		size++;
 	}
-	return size;
+	return size + 1;
 }
 
 void MyList::push_front(int newvalue) {
-	node *nuevo = new node{ newvalue, first, nullptr };
-	first->previous = nuevo;
-	last = nuevo;
+	first->previous = new node{ newvalue, first, nullptr };
+	first = first->previous;
 }
 
 void  MyList::push_back(int newvalue) {
-	
+	if (last == nullptr)
+	{
+		last = new node{ newvalue, nullptr, last };
+		first = last;
+	}
+	else
+	{
+		last->next = new node{ newvalue, nullptr, last };
+		last = last->next;
+	}
 }
+
+void MyList::pop_back() {
+	const auto tmp = last->previous;
+	delete last;
+	last = tmp;
+}
+
 
 int main() {
 	MyList*lista = new MyList();
-	lista->push_front(5);
-	lista->push_front(8);
-	lista->push_front(1);
+	lista->push_back(5);
+	lista->push_back(8);
+	lista->push_back(1);
+
+	lista->size();
+
+	MyList*lista2 = new MyList(*lista);
+
+	lista->~MyList();
+	lista2->~MyList();
 
 	return 0;
 }
